@@ -22,7 +22,7 @@ describe("SearchBar testing", () => {
   });
 
   it("Filter without matching elements applied", () => {
-    webTable.getSearchInput().type("ñlkd");
+    webTable.getSearchInput().type(selectors.dummyValue);
     webTable.getNoLinesMessage();
   });
 });
@@ -82,17 +82,17 @@ describe("Edit line", () => {
 
   it("Edit option over any line, modify and submit", () => {
     webTable.getEditBtn().click();
-    webTable.getFormFirstName().clear().type("Carla");
+    webTable.getFormFirstName().clear().type(selectors.dummyValue);
     webTable.getFormSubmitBtn().click();
     webTable.getAnySortByHeaderElement(0);
-    webTable.getEditedLine();
+    webTable.getNewLine();
   });
 
   it("Exit after editting without submitting", () => {
     webTable.getEditBtn().click();
-    webTable.getFormFirstName().clear().type("Carla");
+    webTable.getFormFirstName().clear().type(selectors.dummyValue);
     webTable.getFormCloseBtn().click();
-    webTable.getEditedLine().should("not.exist");
+    webTable.getNewLine().should("not.exist");
   });
 });
 
@@ -221,10 +221,10 @@ describe("Add new line", () => {
 
   it("Add after non-submitted changes", () => {
     webTable.getAddBtn().click();
-    webTable.getFormAge().should("be.empty").type("45");
+    webTable.getFormFirstName().should("be.empty").type(selectors.dummyValue);
     webTable.getFormCloseBtn().click();
     webTable.getAddBtn().click();
-    webTable.getFormAge().click().should("have.value", 45);
+    webTable.getFormFirstName().click().should("have.value", selectors.dummyValue);
   });
 });
 
@@ -247,7 +247,7 @@ describe("Registration Form", () => {
   });
 
   it("Submit with incorrectly completed fields", () => {
-    webTable.getFormSalary().type("ñlkd");
+    webTable.getFormSalary().type(selectors.dummyValue);
     webTable.getFormSubmitBtn().click();
     webTable
       .getFormSalary()

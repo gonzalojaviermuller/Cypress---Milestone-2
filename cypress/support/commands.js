@@ -23,12 +23,12 @@ Cypress.Commands.add("leaveFirstLineOnly", () => {
 
 Cypress.Commands.add("createNewLine", () => {
   webTable.getAddBtn().click();
-  webTable.getFormFirstName().should("be.empty").type("Test");
-  webTable.getFormLastName().should("be.empty").type("Test");
-  webTable.getFormEmail().should("be.empty").type("Test@test.com")
+  webTable.getFormFirstName().should("be.empty").type(selectors.dummyValue);
+  webTable.getFormLastName().should("be.empty").type(selectors.dummyValue);
+  webTable.getFormEmail().should("be.empty").type(`${selectors.dummyValue}@${selectors.dummyValue}.com`)
   webTable.getFormAge().should("be.empty").type("20");
   webTable.getFormSalary().should("be.empty").type("10000");
-  webTable.getFormDepartment().should("be.empty").type("Test");
+  webTable.getFormDepartment().should("be.empty").type(selectors.dummyValue);
   webTable.getFormSubmitBtn().click();
 });
 

@@ -107,7 +107,7 @@ export class WebTable {
   }
 
   getNewLine() {
-    return cy.contains(selectors.newLine)
+    return cy.contains(selectors.dummyValue)
   }
 }
 

@@ -15,7 +15,6 @@ const formAge = "#age";
 const formSalary = "#salary";
 const formDepartment = "#department";
 const formSubmitBtn = "#submit";
-const editedLine = "Carla";
 const formCloseBtn = ".close";
 const deleteBtn = "#delete-record-";
 const previousBtn = "div.-previous > button";
@@ -23,7 +22,7 @@ const nextBtn = "div.-next > button";
 const addBtn = "#addNewRecordButton";
 const rowsSelector = "select";
 const pageJumpInput = ".-pageJump > input";
-const newLine = "Test"
+const dummyValue = "Test"
 
 export default {
   searchInput,
@@ -43,7 +42,6 @@ export default {
   formSalary,
   formDepartment,
   formSubmitBtn,
-  editedLine,
   formCloseBtn,
   deleteBtn,
   previousBtn,
@@ -51,5 +49,5 @@ export default {
   addBtn,
   rowsSelector,
   pageJumpInput,
-  newLine,
+  dummyValue,
 };
