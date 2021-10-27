@@ -1,0 +1,80 @@
+{
+  "devDependencies": {
+    "chai-colors": "^1.0.1",
+    "cypress": "^8.5.0",
+    "cypress-file-upload": "^5.0.8",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-cypress": "^2.11.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.5",
+    "prettier-eslint": "^12.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "prettier": {
+    "singleQuote": false,
+    "trailingComma": "none",
+    "arrowParens": "avoid",
+    "endOfLine": "auto"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "plugin:prettier/recommended",
+      "plugin:cypress/recommended",
+      "eslint:recommended"
+    ],
+    "plugins": [
+      "prettier",
+      "cypress"
+    ],
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2020,
+      "sourceType": "module"
+    },
+    "rules": {
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
+      "prettier/prettier": "error",
+      "standard/array-bracket-even-spacing": "off",
+      "standard/computed-property-even-spacing": "off",
+      "standard/object-curly-even-spacing": "off",
+      "no-useless-return": "warn",
+      "cypress/no-assigning-return-values": "error",
+      "cypress/no-unnecessary-waiting": "warn",
+      "cypress/assertion-before-screenshot": "warn",
+      "cypress/no-force": "warn",
+      "cypress/no-async-tests": "error"
+    }
+  },
+  "name": "cypress---milestone-2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "cypress-real-events": "^1.5.1"
+  },
+  "scripts": {
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gonzalojaviermuller/Cypress---Milestone-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gonzalojaviermuller/Cypress---Milestone-2/issues"
+  },
+  "homepage": "https://github.com/gonzalojaviermuller/Cypress---Milestone-2#readme",
+  "description": ""
+}
