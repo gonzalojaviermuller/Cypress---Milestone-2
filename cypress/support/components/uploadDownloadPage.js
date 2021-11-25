@@ -10,8 +10,8 @@ import {
       this.dummyFile = "sampleFile.jpeg";
     }
   
-    visitUploadDownload() {
-      cy.visit("https://demoqa.com/upload-download");
+    visit() {
+      cy.visit("/upload-download");
     }
   
     getDownloadBtn() {
@@ -32,4 +32,4 @@ import {
       return cy.get(uploadedFilePath);
     }
   }
-  export const uploadDownload = new UploadDownload();
+  export default new UploadDownload();
