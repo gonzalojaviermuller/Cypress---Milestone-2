@@ -1,4 +1,4 @@
-const tabsContainer = "#tabsContainer";
+const Container = "#tabsContainer";
 const whatTabHandler = "#demo-tab-what";
 const originTabHandler = "#demo-tab-origin";
 const useTabHandler = "#demo-tab-use";
@@ -11,7 +11,7 @@ const originTabContent = "#demo-tabpane-origin";
 const useTabContent = "#demo-tabpane-use";
 
 export default {
-  tabsContainer,
+  Container,
   whatTabHandler,
   originTabHandler,
   useTabHandler,

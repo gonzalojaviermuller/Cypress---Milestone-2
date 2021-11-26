@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 import {
-    tabsContainer,
+  Container,
     whatTabHandler,
     originTabHandler,
     useTabHandler,
@@ -11,16 +11,16 @@ import {
   } from "/cypress/support/selectors/tabsSelector";
   
   export class Tabs {
-    visitTabs() {
-      cy.visit("https://demoqa.com/tabs");
+    visit() {
+      cy.visit("/tabs");
     }
   
-    getTabsContainer() {
-      return cy.get(tabsContainer);
+    getContainer() {
+      return cy.get(Container);
     }
   
     getTabHandler(tabName) {
-      const tabHandler = {
+      const tabHandler = {  
         whatTab: () => {
           return whatTabHandler;
         },
@@ -34,7 +34,7 @@ import {
           return moreTabHandler;
         }
       };
-      return this.getTabsContainer().get(`${tabHandler[tabName]()}`);
+      return this.getContainer().get(`${tabHandler[tabName]()}`);
     }
   
     getTabContent(tabName) {
@@ -52,9 +52,9 @@ import {
           return null;
         }
       };
-      return this.getTabsContainer().get(`${tabContent[tabName]()}`);
+      return this.getContainer().get(`${tabContent[tabName]()}`);
     }
   }
   
-  export const tabs = new Tabs();
+  export default new Tabs();
   
