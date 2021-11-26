@@ -1,10 +1,10 @@
-const framesContainer = "#framesWrapper";
+const Container = "#framesWrapper";
 const bigIframe = "#frame1";
 const smallIframe = "#frame2";
 const iframeSampleText = "#sampleHeading";
 
 export default {
-  framesContainer,
+  Container,
   bigIframe,
   iframeSampleText,
   smallIframe

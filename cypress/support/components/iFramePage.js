@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 import {
-    framesContainer,
+  Container,
   } from "/cypress/support/selectors/iFrameSelectors";
   
   export class IFrames {
@@ -9,12 +9,12 @@ import {
       this.dummyText = "Test";
     }
   
-    visitIFrames() {
-      cy.visit("https://demoqa.com/frames");
+    visit() {
+      cy.visit("/frames");
     }
   
-    getFramesContainer() {
-      return cy.get(framesContainer);
+    getContainer() {
+      return cy.get(Container);
     }
   
     getIframeDocument(frame) {
@@ -24,7 +24,7 @@ import {
         .should("exist");
     }
   
-    getfIframeBody(frame) {
+    getIframeBody(frame) {
       return this.getIframeDocument(frame)
         .its("body")
         .should("be.visible")
@@ -32,5 +32,5 @@ import {
     }
   }
   
-  export const iFrames = new IFrames();
+  export default new IFrames();
   

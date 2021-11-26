@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import { iFrames } from "../support/components/iFramePage";
+import iFrames from "../support/components/iFramePage";
 import {
   iframeSampleText,
   bigIframe,
@@ -8,35 +8,35 @@ import {
 
 describe("Iframes", () => {
   beforeEach("Setup", () => {
-    iFrames.visitIFrames();
+    iFrames.visit();
   });
 
-  it("Big Iframe", () => {
+  it("Should access big Iframe and change text", () => {
     iFrames
-      .getfIframeBody(bigIframe)
+      .getIframeBody(bigIframe)
       .find(iframeSampleText)
       .should("have.text", iFrames.defaultText);
     iFrames
-      .getfIframeBody(bigIframe)
+      .getIframeBody(bigIframe)
       .find(iframeSampleText)
       .invoke("text", iFrames.dummyText);
     iFrames
-      .getfIframeBody(bigIframe)
+      .getIframeBody(bigIframe)
       .find(iframeSampleText)
       .should("have.text", iFrames.dummyText);
   });
 
-  it("Small Iframe", () => {
+  it("Should access small Iframe and change text", () => {
     iFrames
-      .getfIframeBody(smallIframe)
+      .getIframeBody(smallIframe)
       .find(iframeSampleText)
       .should("have.text", iFrames.defaultText);
     iFrames
-      .getfIframeBody(smallIframe)
+      .getIframeBody(smallIframe)
       .find(iframeSampleText)
       .invoke("text", iFrames.dummyText);
     iFrames
-      .getfIframeBody(smallIframe)
+      .getIframeBody(smallIframe)
       .find(iframeSampleText)
       .should("have.text", iFrames.dummyText);
   });
