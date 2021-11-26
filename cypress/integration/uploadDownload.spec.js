@@ -7,12 +7,12 @@ describe("Download/Upload", () => {
     uploadDownload.visit();
   });
 
-  it("Download", () => {
+  it("Should donwload file", () => {
     uploadDownload.getDownloadBtn().click();
     uploadDownload.getDownloadedFile().should("exist");
   });
 
-  it("Upload", () => {
+  it("Should select file to upload", () => {
     uploadDownload
       .getSelectFileBtn()
       .attachFile(`../fixtures/${uploadDownload.dummyFile}`);
