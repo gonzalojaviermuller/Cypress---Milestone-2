@@ -12,8 +12,8 @@ import {
   } from "/cypress/support/selectors/modalSelectors.js";
   
   export class ModalDialogs {
-    visitModalDialogs() {
-      cy.visit("https://demoqa.com/modal-dialogs");
+    visit() {
+      cy.visit("/modal-dialogs");
     }
   
     getModalWindow(size) {
@@ -53,4 +53,4 @@ import {
     }
   }
   
-  export const modalDialogs = new ModalDialogs();
+  export default new ModalDialogs();

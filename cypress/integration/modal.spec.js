@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import { modalDialogs } from "../support/components/modalPage";
+import modalDialogs from "../support/components/modalPage";
 import {
   largeModalClass,
   smallModalClass
@@ -7,10 +7,10 @@ import {
 
 describe("Modals", () => {
   beforeEach("Setup", () => {
-    modalDialogs.visitModalDialogs();
+    modalDialogs.visit();
   });
 
-  it("small", () => {
+  it("Should open and close small modal", () => {
     modalDialogs.getSmallModalBtn().click();
     modalDialogs.getModalDocument().should("have.class", smallModalClass);
     // Closing by close button
@@ -25,7 +25,7 @@ describe("Modals", () => {
     modalDialogs.backdropClick();
   });
 
-  it("large", () => {
+  it("Should open and close large modal", () => {
     modalDialogs.getLargeModalBtn().click();
     modalDialogs.getModalDocument().should("have.class", largeModalClass);
     // Closing by close button
