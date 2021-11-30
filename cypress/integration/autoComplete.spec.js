@@ -1,12 +1,12 @@
 /// <reference types="cypress" />
-import { autoComplete } from "../support/components/autoCompletePage";
+import autoComplete from "../support/components/autoCompletePage";
 
 describe("Auto complete", () => {
   beforeEach("Setpup", () => {
-    autoComplete.visitAutoComplete();
+    autoComplete.visit();
   });
 
-  it("Multiple elements", () => {
+  it("Should get multiple colours and delete them", () => {
     autoComplete
       .getMultipleInput()
       .should("be.empty")
@@ -32,7 +32,7 @@ describe("Auto complete", () => {
     autoComplete.getMultipleValues(1).should("not.exist");
   });
 
-  it("Single elements", () => {
+  it("Should get a single colour", () => {
     autoComplete
       .getSingleInput()
       .should("be.empty")

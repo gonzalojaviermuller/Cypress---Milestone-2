@@ -19,8 +19,8 @@ import {
       this.incorrectColour = "Grey";
     }
   
-    visitAutoComplete() {
-      cy.visit("https://demoqa.com/auto-complete");
+    visit() {
+      cy.visit("/auto-complete");
     }
   
     getMultipleContainer() {
@@ -60,5 +60,5 @@ import {
     }
   }
   
-  export const autoComplete = new AutoComplete();
+  export default new AutoComplete();
   
