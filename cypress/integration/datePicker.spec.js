@@ -18,11 +18,11 @@ describe("Date only Selector", () => {
 
   it("Should select a date by using dropdowns", () => {
     datePicker.getDatePickerInput().click();
-    datePicker.getDropdownMonthSelector().select(datePicker.prevMonth);
+    datePicker.getMonthSelector().select(datePicker.prevMonth);
     datePicker
       .getCurrentMonthDisplay()
       .should("contain.text", datePicker.prevMonth);
-    datePicker.getDropdownYearSelector().select(`${datePicker.prevYear}`);
+    datePicker.getYearSelector().select(`${datePicker.prevYear}`);
     datePicker
       .getCurrentMonthDisplay()
       .should("contain.text", datePicker.prevYear);
@@ -73,13 +73,13 @@ describe("Date and Time selector", () => {
 
   it("Should select a date by using dropdowns", () => {
     datePicker.getDateAndTimePickerInput().click();
-    datePicker.getReadDropMonthSelector().click();
-    datePicker.getReadDropMonthList(datePicker.prevMonth).click();
+    datePicker.getMonthDropdown().click();
+    datePicker.getMonthDropdownList(datePicker.prevMonth).click();
     datePicker
       .getCurrentMonthDisplay()
       .should("contain.text", datePicker.prevMonth);
-    datePicker.getReadDropYearSelector().click();
-    datePicker.getReadDropYearList(datePicker.prevYear).click();
+    datePicker.getYearDropdown().click();
+    datePicker.getYearDropdownList(datePicker.prevYear).click();
     datePicker.getDayOfTable(datePicker.day).click();
     datePicker.getTimeListElement(datePicker.time).click();
     datePicker

@@ -7,13 +7,13 @@ import {
   nextMonthBtn,
   prevMonthBtn,
   monthContainer,
-  monthDropSelector,
-  yearDropSelector,
+  monthSelector,
+  yearSelector,
   currentMonthDisplay,
-  monthReadDropSelector,
-  yearReadDropSelector,
-  monthReadDropList,
-  yearReadDropList,
+  monthDropdown,
+  yearDropdown,
+  monthDropdownList,
+  yearDropdownList,
   timeList,
   daysContainer
 } from "/cypress/support/selectors/datePickerSelectors";
@@ -57,12 +57,12 @@ export class DatePicker {
     return this.getMonthContainer().get(prevMonthBtn);
   }
 
-  getDropdownMonthSelector() {
-    return this.getMonthContainer().get(monthDropSelector);
+  getMonthSelector() {
+    return this.getMonthContainer().get(monthSelector);
   }
 
-  getDropdownYearSelector() {
-    return this.getMonthContainer().get(yearDropSelector);
+  getYearSelector() {
+    return this.getMonthContainer().get(yearSelector);
   }
 
   getDayOfTable(day) {
@@ -73,20 +73,20 @@ export class DatePicker {
     return this.getMonthContainer().get(currentMonthDisplay);
   }
 
-  getReadDropMonthSelector() {
-    return this.getMonthContainer().get(monthReadDropSelector);
+  getMonthDropdown() {
+    return this.getMonthContainer().get(monthDropdown);
   }
 
-  getReadDropYearSelector() {
-    return this.getMonthContainer().get(yearReadDropSelector);
+  getYearDropdown() {
+    return this.getMonthContainer().get(yearDropdown);
   }
 
-  getReadDropMonthList(month) {
-    return this.getMonthContainer().get(monthReadDropList).contains(month);
+  getMonthDropdownList(month) {
+    return this.getMonthContainer().get(monthDropdownList).contains(month);
   }
 
-  getReadDropYearList(year) {
-    return this.getMonthContainer().get(yearReadDropList).contains(year);
+  getYearDropdownList(year) {
+    return this.getMonthContainer().get(yearDropdownList).contains(year);
   }
 
   getTimeListElement(time) {
