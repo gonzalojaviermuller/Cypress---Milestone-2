@@ -1,22 +1,22 @@
 /// <reference types="cypress" />
 import dayjs from "dayjs";
-import { datePicker } from "../support/components/datePickerPage";
+import datePicker from "../support/components/datePickerPage";
 import {
   selectedTime,
   selectedDay
 } from "../support/selectors/datePickerSelectors";
 
 beforeEach("Setup", () => {
-  datePicker.visitDatePicker();
+  datePicker.visit();
 });
 
-describe("Date Selector", () => {
+describe("Date only Selector", () => {
   beforeEach("Date", () => {
     const today = dayjs().format("MM/DD/YYYY");
     datePicker.getDatePickerInput().should("contain.value", today);
   });
 
-  it("Dropdown selection", () => {
+  it("Should select a date by using dropdowns", () => {
     datePicker.getDatePickerInput().click();
     datePicker.getDropdownMonthSelector().select(datePicker.prevMonth);
     datePicker
@@ -32,7 +32,7 @@ describe("Date Selector", () => {
       .should("have.value", `${datePicker.prevMonthNumber}/${datePicker.day}/${datePicker.prevYear}`);
   });
 
-  it("Typing on Input", () => {
+  it("Should type a date on Input", () => {
     datePicker
       .getDatePickerInput()
       .clear()
@@ -46,7 +46,7 @@ describe("Date Selector", () => {
     datePicker.getDayOfTable(datePicker.day).should("have.class", selectedDay);
   });
 
-  it("Prev/Next button", () => {
+  it("Should use the prev/next buttons", () => {
     datePicker.getDatePickerInput().click();
     datePicker.getPrevMonthBtn().click();
     datePicker
@@ -71,7 +71,7 @@ describe("Date and Time selector", () => {
     datePicker.getDateAndTimePickerInput().should("contain.value", today);
   });
 
-  it("Dropdown selection", () => {
+  it("Should select a date by using dropdowns", () => {
     datePicker.getDateAndTimePickerInput().click();
     datePicker.getReadDropMonthSelector().click();
     datePicker.getReadDropMonthList(datePicker.prevMonth).click();
@@ -90,7 +90,7 @@ describe("Date and Time selector", () => {
       );
   });
 
-  it("Typing on Input", () => {
+  it("Should type a date on Input", () => {
     datePicker
       .getDateAndTimePickerInput()
       .clear()
@@ -107,7 +107,7 @@ describe("Date and Time selector", () => {
       .should("have.class", selectedTime);
   });
 
-  it("Prev/Next button", () => {
+  it("Should use the prev/next buttons", () => {
     datePicker.getDateAndTimePickerInput().click();
     datePicker.getPrevMonthBtn().click();
     datePicker

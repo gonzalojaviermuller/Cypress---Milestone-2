@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 import dayjs from "dayjs";
 import {
-  datePickerContainer,
+  container,
   datePickerInput,
   dateAndTimePickerInput,
   nextMonthBtn,
@@ -29,24 +29,24 @@ export class DatePicker {
     this.time = "11:30";
   }
 
-  visitDatePicker() {
-    cy.visit("https://demoqa.com/date-picker");
+  visit() {
+    cy.visit("/date-picker");
   }
 
-  getDatePickerContainer() {
-    return cy.get(datePickerContainer);
+  getContainer() {
+    return cy.get(container);
   }
 
   getMonthContainer() {
-    return this.getDatePickerContainer().get(monthContainer);
+    return this.getContainer().get(monthContainer);
   }
 
   getDatePickerInput() {
-    return this.getDatePickerContainer().get(datePickerInput);
+    return this.getContainer().get(datePickerInput);
   }
 
   getDateAndTimePickerInput() {
-    return this.getDatePickerContainer().get(dateAndTimePickerInput);
+    return this.getContainer().get(dateAndTimePickerInput);
   }
 
   getNextMonthBtn() {
@@ -94,4 +94,4 @@ export class DatePicker {
   }
 }
 
-export const datePicker = new DatePicker();
+export default new DatePicker();
