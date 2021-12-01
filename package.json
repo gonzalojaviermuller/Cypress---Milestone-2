@@ -63,9 +63,7 @@
   "dependencies": {
     "cypress-real-events": "^1.5.1"
   },
-  "scripts": {
-    
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gonzalojaviermuller/Cypress---Milestone-2.git"
