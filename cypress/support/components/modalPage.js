@@ -8,7 +8,8 @@ import {
     xModalBtn,
     body,
     modalContainer,
-    modalDocument
+    modalDocument,
+    modalContent
   } from "/cypress/support/selectors/modalSelectors.js";
   
   export class ModalDialogs {
@@ -50,6 +51,10 @@ import {
   
     getModalDocument() {
       return cy.get(modalDocument);
+    }
+
+    getModalContent() {
+      return cy.get(modalContent);
     }
   }
   
