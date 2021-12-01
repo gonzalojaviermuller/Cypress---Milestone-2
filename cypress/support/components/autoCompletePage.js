@@ -1,7 +1,5 @@
 /// <reference types="cypress" />
 import {
-    singleContainer,
-    multipleContainer,
     singleInput,
     multipleInput,
     multipleSelectedEl,
@@ -23,40 +21,32 @@ import {
       cy.visit("/auto-complete");
     }
   
-    getMultipleContainer() {
-      return cy.get(multipleContainer);
-    }
-  
-    getSingleContainer() {
-      return cy.get(singleContainer);
-    }
-  
     getSingleInput() {
-      return this.getSingleContainer().get(singleInput);
+      return cy.get(singleInput);
     }
   
     getMultipleInput() {
-      return this.getMultipleContainer().get(multipleInput);
+      return cy.get(multipleInput);
     }
   
     getSingleValue() {
-      return this.getSingleContainer().get(singleSelectedEl);
+      return cy.get(singleSelectedEl);
     }
   
     getMultipleValues(element) {
-      return this.getMultipleContainer().get(
+      return cy.get(
         `${multipleSelectedEl}:nth-child(${element})`
       );
     }
   
     getCloseElBtn(element) {
-      return this.getMultipleContainer().get(
+      return cy.get(
         `${multipleSelectedEl}:nth-child(${element}) ${closeElBtn}`
       );
     }
   
     getCloseAllElBtn() {
-      return this.getMultipleContainer().get(closeAllElBtn);
+      return cy.get(closeAllElBtn);
     }
   }
   
