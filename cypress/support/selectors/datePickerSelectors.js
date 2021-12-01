@@ -1,9 +1,7 @@
-const container = "#datePickerContainer";
 const datePickerInput = "#datePickerMonthYearInput";
 const dateAndTimePickerInput = "#dateAndTimePickerInput";
 const nextMonthBtn = ".react-datepicker__navigation--next";
 const prevMonthBtn = ".react-datepicker__navigation--previous";
-const monthContainer = ".react-datepicker__month-container";
 const monthSelector = ".react-datepicker__month-select";
 const yearSelector = ".react-datepicker__year-select";
 const currentMonthDisplay = ".react-datepicker__current-month";
@@ -17,12 +15,10 @@ const selectedDay = "react-datepicker__day--selected";
 const daysContainer = '[role="listbox"]';
 
 export default {
-  container,
   datePickerInput,
   dateAndTimePickerInput,
   nextMonthBtn,
   prevMonthBtn,
-  monthContainer,
   monthSelector,
   yearSelector,
   currentMonthDisplay,

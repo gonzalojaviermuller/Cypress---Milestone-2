@@ -67,7 +67,7 @@ describe("Date only Selector", () => {
 
 describe("Date and Time selector", () => {
   beforeEach("Date", () => {
-    const today = dayjs().format("MMMM DD, YYYY h:mm A");
+    const today = dayjs().format("MMMM D, YYYY h:mm A");
     datePicker.getDateAndTimePickerInput().should("contain.value", today);
   });
 

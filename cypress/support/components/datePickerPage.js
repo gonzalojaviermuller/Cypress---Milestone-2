@@ -1,12 +1,10 @@
 /// <reference types="cypress" />
 import dayjs from "dayjs";
 import {
-  container,
   datePickerInput,
   dateAndTimePickerInput,
   nextMonthBtn,
   prevMonthBtn,
-  monthContainer,
   monthSelector,
   yearSelector,
   currentMonthDisplay,
@@ -33,64 +31,56 @@ export class DatePicker {
     cy.visit("/date-picker");
   }
 
-  getContainer() {
-    return cy.get(container);
-  }
-
-  getMonthContainer() {
-    return this.getContainer().get(monthContainer);
-  }
-
   getDatePickerInput() {
-    return this.getContainer().get(datePickerInput);
+    return cy.get(datePickerInput);
   }
 
   getDateAndTimePickerInput() {
-    return this.getContainer().get(dateAndTimePickerInput);
+    return cy.get(dateAndTimePickerInput);
   }
 
   getNextMonthBtn() {
-    return this.getMonthContainer().get(nextMonthBtn);
+    return cy.get(nextMonthBtn);
   }
 
   getPrevMonthBtn() {
-    return this.getMonthContainer().get(prevMonthBtn);
+    return cy.get(prevMonthBtn);
   }
 
   getMonthSelector() {
-    return this.getMonthContainer().get(monthSelector);
+    return cy.get(monthSelector);
   }
 
   getYearSelector() {
-    return this.getMonthContainer().get(yearSelector);
+    return cy.get(yearSelector);
   }
 
   getDayOfTable(day) {
-    return this.getMonthContainer().get(daysContainer).contains(day);
+    return cy.get(daysContainer).contains(day);
   }
 
   getCurrentMonthDisplay() {
-    return this.getMonthContainer().get(currentMonthDisplay);
+    return cy.get(currentMonthDisplay);
   }
 
   getMonthDropdown() {
-    return this.getMonthContainer().get(monthDropdown);
+    return cy.get(monthDropdown);
   }
 
   getYearDropdown() {
-    return this.getMonthContainer().get(yearDropdown);
+    return cy.get(yearDropdown);
   }
 
   getMonthDropdownList(month) {
-    return this.getMonthContainer().get(monthDropdownList).contains(month);
+    return cy.get(monthDropdownList).contains(month);
   }
 
   getYearDropdownList(year) {
-    return this.getMonthContainer().get(yearDropdownList).contains(year);
+    return cy.get(yearDropdownList).contains(year);
   }
 
   getTimeListElement(time) {
-    return this.getMonthContainer().get(timeList).contains(time);
+    return cy.get(timeList).contains(time);
   }
 }
 
