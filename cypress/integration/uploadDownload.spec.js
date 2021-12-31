@@ -1,7 +1,6 @@
 /// <reference types="cypress" />
 import uploadDownload from "../support/components/uploadDownloadPage";
 
-
 describe("Download/Upload", () => {
   beforeEach("Setup", () => {
     uploadDownload.visit();

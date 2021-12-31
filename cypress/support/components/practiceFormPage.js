@@ -62,11 +62,11 @@ export class PracticeForm {
       this.testGender,
       this.testPhoneNumber,
       this.currentBirthDate,
-      '',
-      '',
-      '',
-      '',
-      '',
+      "",
+      "",
+      "",
+      "",
+      ""
     ];
   }
 
@@ -167,9 +167,9 @@ export class PracticeForm {
 
   checkTableValues(values) {
     let i = 1;
-    
+
     while (i <= 10) {
-      this.getTableCell(i, 2).should("have.text", values[i-1]);
+      this.getTableCell(i, 2).should("have.text", values[i - 1]);
       i++;
     }
   }

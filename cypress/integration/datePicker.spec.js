@@ -29,7 +29,10 @@ describe("Date only Selector", () => {
     datePicker.getDayOfTable(datePicker.day).click();
     datePicker
       .getDatePickerInput()
-      .should("have.value", `${datePicker.prevMonthNumber}/${datePicker.day}/${datePicker.prevYear}`);
+      .should(
+        "have.value",
+        `${datePicker.prevMonthNumber}/${datePicker.day}/${datePicker.prevYear}`
+      );
   });
 
   it("Should type a date on Input", () => {

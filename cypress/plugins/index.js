@@ -1,9 +1,7 @@
 /// <reference types="cypress" />
 
-var dayjs = require('dayjs')
+var dayjs = require("dayjs");
 
-dayjs().format()
+dayjs().format();
 
-module.exports = (on, config) => {
-  
-}
+module.exports = () => {};

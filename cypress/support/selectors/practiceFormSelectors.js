@@ -17,7 +17,7 @@ const cityBtn = "#city";
 const textValue = ".css-1uccc91-singleValue";
 const cityOption = "#react-select-4-option-";
 const getSubmitBtn = "#submit";
-const modalContent = ".modal-content"
+const modalContent = ".modal-content";
 const tableRow = "tr";
 const tableColumn = "td";
 

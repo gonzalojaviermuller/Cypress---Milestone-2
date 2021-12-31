@@ -7,13 +7,7 @@
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-cypress": "^2.11.3",
     "eslint-plugin-prettier": "^3.1.2",
-    "husky": "^4.2.5",
     "prettier-eslint": "^12.0.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
   },
   "prettier": {
     "singleQuote": false,
@@ -33,6 +27,7 @@
       "cypress"
     ],
     "env": {
+      "cypress/globals": true,
       "es6": true,
       "node": true
     },
@@ -63,7 +58,10 @@
   "dependencies": {
     "cypress-real-events": "^1.5.1"
   },
-  "scripts": {},
+  "scripts": {
+    "eslint": "eslint .",
+    "prettier": "prettier --write ."
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gonzalojaviermuller/Cypress---Milestone-2.git"

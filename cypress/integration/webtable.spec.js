@@ -1,32 +1,32 @@
 /// <reference types="cypress" />
-import { webTable } from "../support/components/webtablePage";
+import webTable from "../support/components/webtablePage";
 
 beforeEach("Setup", () => {
-  webTable.visitWebTable();
+  webTable.visit();
 });
 
 describe("SearchBar testing", () => {
-  it("No filter applied", () => {
+  it("Should show all results", () => {
     webTable.getSearchInput().clear();
     webTable.getTableCell(1, 1).should("have.text", webTable.lineCierra);
     webTable.getTableCell(2, 1).should("have.text", webTable.lineAlden);
     webTable.getTableCell(3, 1).should("have.text", webTable.lineKierra);
   });
 
-  it("Filter with matching elements applied", () => {
+  it("Should filter only one result", () => {
     webTable.getSearchInput().type(webTable.lineCierra);
     webTable.getTableCell(1, 1).should("have.text", webTable.lineCierra);
     webTable.getTableCell(2, 1).should("not.have.text");
   });
 
-  it("Filter without matching elements applied", () => {
+  it("Should filter without results", () => {
     webTable.getSearchInput().type(webTable.dummyValue);
     webTable.getNoLinesMessage();
   });
 });
 
 describe("Sort by", () => {
-  it("Sort by First Name", () => {
+  it("Should sort by First Name", () => {
     const column = 1;
     // desc sorting
     webTable.getSortByHeader(column).click();
@@ -42,7 +42,7 @@ describe("Sort by", () => {
     });
   });
 
-  it("Sort by Last Name", () => {
+  it("Should sort by Last Name", () => {
     const column = 2;
     // desc sorting
     webTable.getSortByHeader(column).click();
@@ -58,7 +58,7 @@ describe("Sort by", () => {
     });
   });
 
-  it("Sort by Age", () => {
+  it("Should sort by Age", () => {
     const column = 3;
     // desc sorting
     webTable.getSortByHeader(column).click();
@@ -86,7 +86,7 @@ describe("Sort by", () => {
     });
   });
 
-  it("Sort by Email", () => {
+  it("Should sort by Email", () => {
     const column = 4;
     // desc sorting
     webTable.getSortByHeader(column).click();
@@ -102,7 +102,7 @@ describe("Sort by", () => {
     });
   });
 
-  it("Sort by Salary", () => {
+  it("Should sort by Salary", () => {
     const column = 5;
     // desc sorting
     webTable.getSortByHeader(column).click();
@@ -133,7 +133,7 @@ describe("Sort by", () => {
     });
   });
 
-  it("Sort by Department", () => {
+  it("Should sort by Department", () => {
     const column = 6;
     // desc sorting
     webTable.getSortByHeader(column).click();
@@ -153,14 +153,14 @@ describe("Sort by", () => {
 });
 
 describe("Edit line", () => {
-  it("Edit option over any line, modify and submit", () => {
+  it("Should modify and submit a line", () => {
     webTable.getEditBtn(1).click();
     webTable.getFormField("firstName").clear().type(webTable.dummyValue);
     webTable.getFormSubmitBtn().click();
     webTable.getTableCell(1, 1).should("contain.text", webTable.dummyValue);
   });
 
-  it("Exit after editting without submitting", () => {
+  it("Should modify a line without submitting", () => {
     webTable.getEditBtn(1).click();
     webTable.getFormField("firstName").clear().type(webTable.dummyValue);
     webTable.getFormCloseBtn().click();
@@ -169,12 +169,12 @@ describe("Edit line", () => {
 });
 
 describe("Delete line", () => {
-  it("2 or more lines", () => {
+  it("Should delete a line", () => {
     webTable.getDeleteBtn(1).click();
     webTable.getDeleteBtn(1).should("not.exist");
   });
 
-  it("1 line", () => {
+  it("Should delete the only existing line", () => {
     webTable.leaveFirstLineOnly();
     webTable.getDeleteBtn(1).click();
     webTable.getNoLinesMessage().should("be.visible");
@@ -182,12 +182,12 @@ describe("Delete line", () => {
 });
 
 describe("Prev/Next page", () => {
-  it("Only 1 page", () => {
+  it("Should try to get to Next/Prev page and fail", () => {
     webTable.getPreviousBtn().should("be.disabled");
     webTable.getNextBtn().should("be.disabled");
   });
 
-  it("With 2 pages", () => {
+  it("Should get to Next page and then Prev page", () => {
     webTable.createSecondPage();
     webTable.getNextBtn().click();
     webTable.getPageJumpInput().should("have.value", "2");
@@ -197,13 +197,13 @@ describe("Prev/Next page", () => {
 });
 
 describe("Page Jump", () => {
-  it("Only 1 page", () => {
+  it("Should try to get to next page and fail", () => {
     webTable.getPageJumpInput().type("2{enter}");
     webTable.getPageJumpInput().should("have.value", "1");
     webTable.getTableCell(1, 1).should("have.text", webTable.lineCierra);
   });
 
-  it("With 2 pages", () => {
+  it("Should get to second page", () => {
     webTable.createSecondPage();
     webTable.getPageJumpInput().type("2{enter}");
     webTable.getPageJumpInput().should("have.value", "2");
@@ -212,37 +212,37 @@ describe("Page Jump", () => {
 });
 
 describe("Rows displayed", () => {
-  it("5 rows option selected", () => {
+  it("Should display 5 rows of lines", () => {
     const option = 5;
     webTable.getRowsSelector(option);
     webTable.getAllRows().its("length").should("eq", option);
   });
 
-  it("10 rows option selected", () => {
+  it("Should display 10 rows of lines", () => {
     const option = 10;
     webTable.getRowsSelector(option);
     webTable.getAllRows().its("length").should("eq", option);
   });
 
-  it("20 rows option selected", () => {
+  it("Should display 20 rows of lines", () => {
     const option = 20;
     webTable.getRowsSelector(option);
     webTable.getAllRows().its("length").should("eq", option);
   });
 
-  it("25 rows option selected", () => {
+  it("Should display 25 rows of lines", () => {
     const option = 25;
     webTable.getRowsSelector(option);
     webTable.getAllRows().its("length").should("eq", option);
   });
 
-  it("50 rows option selected", () => {
+  it("Should display 50 rows of lines", () => {
     const option = 50;
     webTable.getRowsSelector(option);
     webTable.getAllRows().its("length").should("eq", option);
   });
 
-  it("100 rows option selected", () => {
+  it("Should display 100 rows of lines", () => {
     const option = 100;
     webTable.getRowsSelector(option);
     webTable.getAllRows().its("length").should("eq", option);
@@ -250,12 +250,12 @@ describe("Rows displayed", () => {
 });
 
 describe("Add new line", () => {
-  it("First Add", () => {
+  it("Should create a new line", () => {
     webTable.createNewLine();
     webTable.getTableCell(4, 1).should("have.text", webTable.dummyValue);
   });
 
-  it("Add after non-submitted changes", () => {
+  it("Should find previous unsubmitted changes in Add form", () => {
     webTable.getAddBtn().click();
     webTable
       .getFormField("firstName")
@@ -271,7 +271,7 @@ describe("Add new line", () => {
 });
 
 describe("Registration Form", () => {
-  it("Submit with empty fields", () => {
+  it("Should submit with empty fields", () => {
     webTable.getAddBtn().click();
     webTable.getFormSubmitBtn().click();
     webTable
@@ -283,7 +283,7 @@ describe("Registration Form", () => {
       .should("have.css", "border-color", "rgb(40, 167, 69)");
   });
 
-  it("Submit with incorrectly completed fields", () => {
+  it("Should submit with incorrectly completed fields", () => {
     webTable.getAddBtn().click();
     webTable.getFormField("salary").type(webTable.dummyValue);
     webTable.getFormSubmitBtn().click();

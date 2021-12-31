@@ -9,7 +9,7 @@ const modalContainer = ".modal";
 const modalDocument = "body > div.fade.modal.show > div";
 const largeModalClass = "modal-dialog modal-lg";
 const smallModalClass = "modal-dialog modal-sm";
-const modalContent = ".modal-dialog "
+const modalContent = ".modal-dialog ";
 
 export default {
   smallModalBtn,

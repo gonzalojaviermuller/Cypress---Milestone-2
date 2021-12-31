@@ -32,8 +32,8 @@ export class WebTable {
     this.lineKierra = "Kierra";
   }
 
-  visitWebTable() {
-    cy.visit("https://demoqa.com/webtables");
+  visit() {
+    cy.visit("/webtables");
   }
 
   getTableContainer() {
@@ -41,17 +41,17 @@ export class WebTable {
   }
 
   getTableRow(row) {
-    return this.getTableContainer().get(`${tableRow}:nth-child(${row})`);
+    return cy.get(`${tableRow}:nth-child(${row})`);
   }
 
   getTableCell(row, column) {
-    return this.getTableContainer().get(
+    return cy.get(
       `${tableRow}:nth-child(${row}) ${tableColumn}:nth-child(${column})`
     );
   }
 
   getTableColumn(column) {
-    return this.getTableContainer().get(`${tableColumn}:nth-child(${column})`);
+    return cy.get(`${tableColumn}:nth-child(${column})`);
   }
 
   getNoLinesMessage() {
@@ -91,7 +91,7 @@ export class WebTable {
   }
 
   getAddBtn() {
-    return this.getTableContainer().get(addBtn);
+    return cy.get(addBtn);
   }
 
   getFormSubmitBtn() {
@@ -122,8 +122,8 @@ export class WebTable {
   }
 
   leaveFirstLineOnly() {
-    webTable.getDeleteBtn(3).click();
-    webTable.getDeleteBtn(2).click();
+    this.getDeleteBtn(3).click();
+    this.getDeleteBtn(2).click();
   }
 
   createNewLine() {
@@ -147,28 +147,28 @@ export class WebTable {
   }
 
   getSearchInput() {
-    return this.getTableContainer().get(searchInput);
+    return cy.get(searchInput);
   }
 
   getPreviousBtn() {
-    return this.getTableContainer().get(previousBtn);
+    return cy.get(previousBtn);
   }
 
   getNextBtn() {
-    return this.getTableContainer().get(nextBtn);
+    return cy.get(nextBtn);
   }
 
   getPageJumpInput() {
-    return this.getTableContainer().get(pageJumpInput);
+    return cy.get(pageJumpInput);
   }
 
   getRowsSelector(option) {
-    return this.getTableContainer().get(rowsSelector).select(`${option} rows`);
+    return cy.get(rowsSelector).select(`${option} rows`);
   }
 
   getAllRows() {
-    return this.getTableContainer().get(tableRow);
+    return cy.get(tableRow);
   }
 }
 
-export const webTable = new WebTable();
+export default new WebTable();
