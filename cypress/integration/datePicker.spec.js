@@ -54,10 +54,7 @@ describe("Date only Selector", () => {
     datePicker.getPrevMonthBtn().click();
     datePicker
       .getCurrentMonthDisplay()
-      .should(
-        "contain.text",
-        `${datePicker.prevMonth} ${datePicker.currentYear}`
-      );
+      .should("contain.text", datePicker.prevMonthWithYear);
     datePicker.getNextMonthBtn().click();
     datePicker
       .getCurrentMonthDisplay()
@@ -115,10 +112,7 @@ describe("Date and Time selector", () => {
     datePicker.getPrevMonthBtn().click();
     datePicker
       .getCurrentMonthDisplay()
-      .should(
-        "contain.text",
-        `${datePicker.prevMonth} ${datePicker.currentYear}`
-      );
+      .should("contain.text", datePicker.prevMonthWithYear);
     datePicker.getNextMonthBtn().click();
     datePicker
       .getCurrentMonthDisplay()
