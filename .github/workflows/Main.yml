@@ -8,9 +8,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
+    
+      - name: Run ESLint
+        run: npm run eslint
+
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
           build: npx cypress run
+          
+      - name: Slack notification
+        if: always()
+        uses: ravsamhq/notify-slack-action@v1
+        with:
+          status: ${{ job.status }}
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}    
