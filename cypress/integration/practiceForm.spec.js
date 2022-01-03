@@ -96,8 +96,6 @@ describe("Form fields completing", () => {
         "have.text",
         `${practiceForm.testState} ${practiceForm.testCity}`
       );
-    // Added as an alternative, will remove after consulting
-    practiceForm.checkTableValues(practiceForm.expectedValues);
   });
 
   it("Should submit with empty fields", () => {
