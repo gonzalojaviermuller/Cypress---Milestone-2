@@ -56,18 +56,6 @@ export class PracticeForm {
       this.testAddress,
       `${this.testState} ${this.testCity}`
     ];
-    this.expectedValues2 = [
-      `${this.testValue} ${this.testValue}`,
-      this.testEmail,
-      this.testGender,
-      this.testPhoneNumber,
-      this.currentBirthDate,
-      "",
-      "",
-      "",
-      "",
-      ""
-    ];
   }
 
   visit() {
@@ -163,15 +151,6 @@ export class PracticeForm {
     return cy.get(
       `${tableRow}:nth-child(${row}) ${tableColumn}:nth-child(${column})`
     );
-  }
-
-  checkTableValues(values) {
-    let i = 1;
-
-    while (i <= 10) {
-      this.getTableCell(i, 2).should("have.text", values[i - 1]);
-      i++;
-    }
   }
 }
 export default new PracticeForm();

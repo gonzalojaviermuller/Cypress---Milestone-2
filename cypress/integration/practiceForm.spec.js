@@ -144,7 +144,5 @@ describe("Form fields completing", () => {
     practiceForm.getTableCell(8, 2).should("not.have.text");
     practiceForm.getTableCell(9, 2).should("not.have.text");
     practiceForm.getTableCell(10, 2).should("not.have.text");
-    // Added as an alternative, will remove after consulting
-    practiceForm.checkTableValues(practiceForm.expectedValues2);
   });
 });
