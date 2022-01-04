@@ -96,8 +96,6 @@ describe("Form fields completing", () => {
         "have.text",
         `${practiceForm.testState} ${practiceForm.testCity}`
       );
-    // Added as an alternative, will remove after consulting
-    practiceForm.checkTableValues(practiceForm.expectedValues);
   });
 
   it("Should submit with empty fields", () => {
@@ -144,7 +142,5 @@ describe("Form fields completing", () => {
     practiceForm.getTableCell(8, 2).should("not.have.text");
     practiceForm.getTableCell(9, 2).should("not.have.text");
     practiceForm.getTableCell(10, 2).should("not.have.text");
-    // Added as an alternative, will remove after consulting
-    practiceForm.checkTableValues(practiceForm.expectedValues2);
   });
 });

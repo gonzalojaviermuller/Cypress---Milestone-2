@@ -18,6 +18,7 @@ import {
 
 export class DatePicker {
   constructor() {
+    this.prevMonthWithYear = dayjs().subtract(1, "month").format("MMMM YYYY");
     this.prevYear = dayjs().subtract(1, "year").year();
     this.currentYear = dayjs().format("YYYY");
     this.currentMonth = dayjs().format("MMMM");
